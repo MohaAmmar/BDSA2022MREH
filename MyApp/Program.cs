@@ -5,8 +5,15 @@ namespace MyApp
     public class Program
     {
         static void Main(string[] args)
-        {
-            printName("Jonas");
+        {  
+            Console.WriteLine("Enter Year: ");
+            int year = Convert.ToInt32(Console.ReadLine());
+            if(isLeapYear(year)){
+                Console.WriteLine("yay");
+            }else{
+                Console.WriteLine("nay");
+            }
+
         }
 
         public static string printName(string name){
