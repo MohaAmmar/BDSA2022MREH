@@ -7,13 +7,16 @@ namespace MyApp
         static void Main(string[] args)
         {  
             Console.WriteLine("Enter Year: ");
-            int year = Convert.ToInt32(Console.ReadLine());
-            if(isLeapYear(year)){
+            try{
+                int year = Convert.ToInt32(Console.ReadLine());
+                if(isLeapYear(year)){
                 Console.WriteLine("yay");
-            }else{
+                }else{
                 Console.WriteLine("nay");
+                }
+            } catch (Exception e){
+                Console.WriteLine("Input must be an integer after 1582");
             }
-
         }
 
         public static string printName(string name){
@@ -21,6 +24,9 @@ namespace MyApp
         }
 
         public static bool isLeapYear(int year){
+            if(year < 1582){
+                throw new Exception();
+            }
             if((year % 400) == 0){
                 return true;
             }else if((year % 100) == 0){
